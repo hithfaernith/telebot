@@ -26,7 +26,7 @@ def main():
     application.add_handler(CommandHandler("start", start))
     job_queue = application.job_queue
     job_queue.run_daily(lunch, time=time(hour=12, minute=00, second=0, tzinfo=tz))
-    job_queue.run_daily(noot, time=time(hour=21, minute=35, second=0, tzinfo=tz))
+    job_queue.run_daily(noot, time=time(hour=19, minute=00, second=0, tzinfo=tz))
     application.run_polling()
 
 if __name__ == "__main__":
