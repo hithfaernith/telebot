@@ -33,7 +33,7 @@ def get_weather_data():
             res = f"Weather in {location}: {forecast}\n"
             dt_object = datetime.fromisoformat(data["data"]["items"][0]["update_timestamp"])
             human_readable = dt_object.strftime('%d %B %Y, %H:%M:%S')
-            res += f"Data updated at {human_readable}"
+            res += f"Data updated on {human_readable}"
             return res
         else:
             return "Weather update timestamp not available."
