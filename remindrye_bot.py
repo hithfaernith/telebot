@@ -63,7 +63,7 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("weatherupdate", weather_update))
     job_queue = application.job_queue
-    job_queue.run_daily(queenstown_weather, time=time(hour=08, minute=50, second=0, tzinfo=tz))
+    job_queue.run_daily(queenstown_weather, time=time(hour=8, minute=50, second=0, tzinfo=tz))
     job_queue.run_daily(lunch, time=time(hour=12, minute=00, second=0, tzinfo=tz))
     job_queue.run_daily(queenstown_weather, time=time(hour=17, minute=50, second=0, tzinfo=tz))
     job_queue.run_daily(noot, time=time(hour=19, minute=00, second=0, tzinfo=tz))
