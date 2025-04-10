@@ -19,6 +19,7 @@ params = {
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 CHAT_ID = os.environ.get('CHAT_TOKEN')
 tz  = timezone(timedelta(hours=8))
+weekdays = (0, 1, 2, 3, 4)
 
 def get_weather_data():
     # Send GET request to the API
@@ -63,10 +64,10 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("weatherupdate", weather_update))
     job_queue = application.job_queue
-    job_queue.run_daily(queenstown_weather, time=time(hour=8, minute=50, second=0, tzinfo=tz))
-    job_queue.run_daily(lunch, time=time(hour=12, minute=00, second=0, tzinfo=tz))
-    job_queue.run_daily(queenstown_weather, time=time(hour=17, minute=50, second=0, tzinfo=tz))
-    job_queue.run_daily(noot, time=time(hour=19, minute=00, second=0, tzinfo=tz))
+    job_queue.run_daily(queenstown_weather, time=time(hour=8, minute=25, second=0, tzinfo=tz), days=weekdays)
+    job_queue.run_daily(lunch, time=time(hour=11, minute=30, second=0, tzinfo=tz), days=weekdays)
+    job_queue.run_daily(queenstown_weather, time=time(hour=17, minute=50, second=0, tzinfo=tz), days=weekdays)
+    job_queue.run_daily(noot, time=time(hour=18, minute=30, second=0, tzinfo=tz), days=weekdays)
     application.run_polling()
 
 if __name__ == "__main__":
