@@ -19,7 +19,7 @@ params = {
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 CHAT_ID = os.environ.get('CHAT_TOKEN')
 tz  = timezone(timedelta(hours=8))
-weekdays = (0, 1, 2, 3, 4)
+weekdays = (1, 2, 3, 4, 5)
 
 def get_weather_data():
     # Send GET request to the API
